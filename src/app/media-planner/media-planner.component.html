@@ -1,0 +1,39 @@
+<form class="example-form">
+	<mat-form-field class="example-full-width">
+    <input type="text" placeholder="Pick Client" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let client of clients" [value]="client.name">
+        {{client.name}}
+      </mat-option>
+    </mat-autocomplete>
+	</mat-form-field>
+
+	<mat-form-field class="example-full-width">
+    <input type="text" placeholder="Pick Country" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="autoc">
+    <mat-autocomplete #autoc="matAutocomplete">
+      <mat-option *ngFor="let c of coutnries" [value]="c.name">
+        {{c.name}}
+      </mat-option>
+    </mat-autocomplete>
+	</mat-form-field>
+<div class="">
+	<div style="display:inline" >
+		<mat-form-field>
+			<input matInput [matDatepicker]="from" placeholder="From Date">
+			<mat-datepicker-toggle matSuffix [for]="from"></mat-datepicker-toggle>
+			<mat-datepicker #from></mat-datepicker>
+		</mat-form-field>
+	</div>
+	&nbsp;
+<div style="display:inline">
+	<mat-form-field>
+		<input matInput [matDatepicker]="to" placeholder="To Date">
+		<mat-datepicker-toggle matSuffix [for]="to"></mat-datepicker-toggle>
+		<mat-datepicker #to></mat-datepicker>
+	</mat-form-field>
+</div>
+</div>
+
+
+
+</form>

@@ -11,6 +11,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClientComponent } from './client/client.component';
 import { SupplierComponent } from './supplier/supplier.component';
 import { MediaChannelComponent } from './media-channel/media-channel.component';
+import { MediaPlannerComponent } from './media-planner/media-planner.component';
+ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+ import {MatAutocompleteModule} from '@angular/material/autocomplete';
+ import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule,MatDatepickerModule,MatNativeDateModule} from '@angular/material';
+// import {FormControl} from '@angular/forms';
+ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,12 +27,21 @@ import { MediaChannelComponent } from './media-channel/media-channel.component';
     ClientComponent,
     SupplierComponent,
     MediaChannelComponent,
+    MediaPlannerComponent,
+		//MatAutocompleteModule
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
 		HttpClientModule,
-
+		BrowserAnimationsModule,
+		MatAutocompleteModule,
+		ReactiveFormsModule,
+		FormsModule,
+		MatFormFieldModule,
+		MatInputModule,
+		MatDatepickerModule,
+		MatNativeDateModule,
      // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
      // and returns simulated server responses.
      // Remove it when a real server is ready to receive requests.
@@ -35,7 +51,7 @@ import { MediaChannelComponent } from './media-channel/media-channel.component';
      )
 
   ],
-  providers: [],
+  providers: [MatNativeDateModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

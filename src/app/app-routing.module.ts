@@ -4,10 +4,12 @@ import {CountryComponent} from './country/country.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {ClientComponent} from './client/client.component';
 import {SupplierComponent} from './supplier/supplier.component';
-import {MediaChannelComponent} from './media-channel/media-channel.component'
+import {MediaChannelComponent} from './media-channel/media-channel.component';
+import {MediaPlannerComponent} from './media-planner/media-planner.component'
 const routes: Routes = [
 	{path: 'countries', component: CountryComponent},
 	{path: 'configurations', component: DashboardComponent},
+	{path: 'mediaplanner', component: MediaPlannerComponent},
 	{path: '', redirectTo:"/configurations", pathMatch:'full'},
 	{path: 'clients', component: ClientComponent},
 	{path: 'suppliers', component: SupplierComponent},
