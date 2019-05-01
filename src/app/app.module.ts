@@ -15,9 +15,16 @@ import { MediaPlannerComponent } from './media-planner/media-planner.component';
  import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
  import {MatAutocompleteModule} from '@angular/material/autocomplete';
  import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule,MatDatepickerModule,MatNativeDateModule} from '@angular/material';
+import {MatInputModule,MatDatepickerModule,MatNativeDateModule,MatListModule,MatRadioModule,MatButtonModule,
+MatSelectModule,MatCardModule,MatTableModule} from '@angular/material';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 // import {FormControl} from '@angular/forms';
  import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { CampaignComponent } from './media-planner/campaign/campaign.component';
+import { GanttChart } from 'angular-gantt-chart';
+import { GanttChartComponent } from './gantt-chart/gantt-chart.component';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +35,8 @@ import {MatInputModule,MatDatepickerModule,MatNativeDateModule} from '@angular/m
     SupplierComponent,
     MediaChannelComponent,
     MediaPlannerComponent,
+    CampaignComponent,
+    GanttChartComponent,
 		//MatAutocompleteModule
   ],
   imports: [
@@ -42,6 +51,14 @@ import {MatInputModule,MatDatepickerModule,MatNativeDateModule} from '@angular/m
 		MatInputModule,
 		MatDatepickerModule,
 		MatNativeDateModule,
+		MatExpansionModule,
+		MatListModule,
+		MatRadioModule,
+		MatButtonModule,
+		MatSelectModule,
+		MatCardModule,
+		MatTableModule,
+		GanttChart,
      // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
      // and returns simulated server responses.
      // Remove it when a real server is ready to receive requests.

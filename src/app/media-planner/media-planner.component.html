@@ -1,25 +1,57 @@
 <form class="example-form">
+	<div class="" *ngIf="!campaignCreated" >
+		<div >
+
+
+		<div style="display:inline">
 	<mat-form-field class="example-full-width">
     <input type="text" placeholder="Pick Client" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let client of clients" [value]="client.name">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)='OnClientSelected($event.option.value)'>
+      <mat-option  *ngFor="let client of clients" [value]="client.name">
         {{client.name}}
       </mat-option>
     </mat-autocomplete>
 	</mat-form-field>
 
+</div>
+<div style="display:inline">
+
 	<mat-form-field class="example-full-width">
     <input type="text" placeholder="Pick Country" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="autoc">
-    <mat-autocomplete #autoc="matAutocomplete">
+    <mat-autocomplete #autoc="matAutocomplete" (optionSelected)='OnCountrySelected($event.option.value)'>
       <mat-option *ngFor="let c of coutnries" [value]="c.name">
         {{c.name}}
       </mat-option>
     </mat-autocomplete>
 	</mat-form-field>
+	</div>
+<div class="">
+	<mat-accordion>
+		<mat-expansion-panel *ngFor="let mc of mediaChannels" (opened)="LoadSuppliers(mc.id)">
+			<mat-expansion-panel-header>
+		 <mat-panel-title>
+			 {{mc.name}}
+		 </mat-panel-title>
+	 </mat-expansion-panel-header>
+					 <mat-selection-list #sup *ngIf="suppliers" (selectionChange)="onSelection($event, sup.selectedOptions)">
+						 <mat-list-option [value]= "s" *ngFor="let s of suppliers">
+	{{s.name}}
+</mat-list-option>
+				</mat-selection-list>
+Count: {{selectedItems.length}}
+
+			</mat-expansion-panel>
+		</mat-accordion>
+</div>
+&nbsp;
+<div class=""><mat-form-field class="example-full-width">
+      <input matInput #cbudget  placeholder="Campaign Budget" name="campaignbudget" [(ngModel)]="campaignBudget">
+    </mat-form-field>
+</div>
 <div class="">
 	<div style="display:inline" >
 		<mat-form-field>
-			<input matInput [matDatepicker]="from" placeholder="From Date">
+			<input matInput [matDatepicker]="from" placeholder="From Date"  (dateInput)="addFromDate('input', $event)" >
 			<mat-datepicker-toggle matSuffix [for]="from"></mat-datepicker-toggle>
 			<mat-datepicker #from></mat-datepicker>
 		</mat-form-field>
@@ -27,12 +59,66 @@
 	&nbsp;
 <div style="display:inline">
 	<mat-form-field>
-		<input matInput [matDatepicker]="to" placeholder="To Date">
+		<input matInput [matDatepicker]="to" placeholder="To Date"(dateInput)="addToDate('input', $event)"  >
 		<mat-datepicker-toggle matSuffix [for]="to"></mat-datepicker-toggle>
 		<mat-datepicker #to></mat-datepicker>
 	</mat-form-field>
 </div>
 </div>
+<div class="">
+	  <button mat-raised-button color="primary" (click)="CreateCampaign()">Create Campaign</button>
+</div>
+</div>
+
+
+</div>
+<br>
+<div class="" *ngIf="campaignCreated"> {{campaigns.length}}
+	<span>Campaign {{campaign.client}} - {{campaign.country}} has been Created. Start Creating Ad in It.</span>
+<div class="">
+	  <button mat-raised-button color="primary" (click)="CreateEmptyAd()" [disabled]="dirtyAd">Create Ad</button>
+</div>
+<div class="" *ngFor="let a of ads">
+	<div class="">
+
+	<mat-form-field>
+ <mat-label>Select Supplier</mat-label>
+ <mat-select [(value)]="selectedSupplierInAd" (selectionChange)="onSupplierChange(a,$event)">
+	 <mat-option>None</mat-option>
+	 <mat-option [value]="s.name" *ngFor="let s of selectedItems" >{{s.name}}</mat-option>
+ </mat-select>
+</mat-form-field>
+</div>
+<div class="">
+	<div style="display:inline" >
+		<mat-form-field>
+			<input matInput [matDatepicker]="fromAd" placeholder="From Date"  (dateInput)="addFromDateForAd(a, $event)" >
+			<mat-datepicker-toggle matSuffix [for]="fromAd"></mat-datepicker-toggle>
+			<mat-datepicker #fromAd></mat-datepicker>
+		</mat-form-field>
+	</div>
+	&nbsp;
+<div style="display:inline">
+	<mat-form-field>
+		<input matInput [matDatepicker]="toAd" placeholder="To Date"(dateInput)="addToDateForAd(a, $event)"  >
+		<mat-datepicker-toggle matSuffix [for]="toAd"></mat-datepicker-toggle>
+		<mat-datepicker #toAd></mat-datepicker>
+	</mat-form-field>
+</div>
+</div>
+&nbsp;
+<div class=""><mat-form-field class="example-full-width">
+      <input matInput #adbudget  placeholder="Ad Budget" name="adbudget" [(ngModel)]="a.budget">
+    </mat-form-field>
+		{{a.budget}}
+</div>
+<div class="">
+	  <button mat-raised-button color="primary" (click)="SaveAd(a)">Save Ad</button>
+</div>
+</div>
+
+</div>
+
 
 
 

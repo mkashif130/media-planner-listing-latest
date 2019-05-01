@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {InMemoryDbService} from 'angular-in-memory-web-api';
 import {Country} from './country/Country';
 import {Client} from './client/client';
+import {Campaign} from './media-planner/ad'
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,9 @@ export class InMemoryDataService implements InMemoryDbService {
 			{id:2,name:"Offline"},
 		];
 
-		return {countries,clients,suppliers,mediaChannels};
+		let campaign = [];
+
+		return {countries,clients,suppliers,mediaChannels, campaign};
 	}
 
 	genId(countries: Country[]):number{
