@@ -1,0 +1,17 @@
+<h2>All Suppliers List</h2>
+
+<ul class="mediachannels">
+	<li *ngFor ="let mc of mediaChannels" (click)="onSelect(mc)">
+		<span >{{mc.name}}</span>
+	</li>
+</ul>
+
+<div *ngIf="selectedMediaChannel">
+<h2>{{selectedMediaChannel.name}}</h2>
+
+<ul class="mediachannels">
+	<li *ngFor ="let s of suppliersInMedia" >
+		<span >{{s.name}}</span>
+	</li>
+</ul>
+</div>
