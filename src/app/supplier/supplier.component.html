@@ -1,7 +1,6 @@
-<h2>All Suppliers List</h2>
-
-<ul class="suppliers">
-	<li *ngFor ="let supplier of suppliers">
-		<span >{{supplier.name}}</span>
-	</li>
-</ul>
+<div class="component-supplier">
+  <h2>All Suppliers List</h2>
+  <mat-nav-list>
+    <mat-list-item *ngFor="let supplier of suppliers">{{supplier.name}}</mat-list-item>
+  </mat-nav-list>
+</div>

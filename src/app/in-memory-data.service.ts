@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {InMemoryDbService} from 'angular-in-memory-web-api';
-import {Country} from './country/Country';
+import {Country} from './country/country';
 import {Client} from './client/client';
 import {Campaign} from './media-planner/ad'
 

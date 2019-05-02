@@ -1,7 +1,6 @@
-<h2>All Clients List</h2>
-
-<ul class="clients">
-	<li *ngFor ="let client of clients">
-		<span >{{client.name}}</span>
-	</li>
-</ul>
+<div class="component-client">
+  <h2>All Clients List</h2>
+  <mat-nav-list>
+    <mat-list-item *ngFor="let client of clients">{{client.name}}</mat-list-item>
+  </mat-nav-list>
+</div>

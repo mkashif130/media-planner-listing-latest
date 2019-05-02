@@ -1,19 +1,25 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-
+<div class="main">
+  <div class="sidebar">
+    <mat-nav-list>
+      <mat-list-item routerLink="/configurations">Configurations</mat-list-item>
+      <mat-nav-list class="inner-nav">
+        <mat-list-item routerLink="/countries">Countries</mat-list-item>
+        <mat-list-item routerLink="/clients">Clients</mat-list-item>
+        <mat-list-item routerLink="/suppliers">Suppliers</mat-list-item>
+        <mat-list-item routerLink="/mc">Media Channels</mat-list-item>
+      </mat-nav-list>
+      <mat-list-item routerLink="/mediaplanner">Media Planner</mat-list-item>
+      <mat-list-item routerLink="/campaigns">Campaigns</mat-list-item>
+      <mat-list-item routerLink="/chart">Gantt Chart</mat-list-item>
+    </mat-nav-list>
+  </div>
+  <div class="content">
+    <div class="header">
+        Welcome to {{ title }}!
+    </div>
+    <div class="router-content"><router-outlet></router-outlet></div>
+  </div>
 </div>
-<nav>
-
-		<a routerLink="/configurations">Configurations</a>&nbsp;
-
-			<a routerLink="/mediaplanner">Media Planner</a>&nbsp;
-
-				<a routerLink="/campaigns">Campaigns</a> &nbsp;
-				<a routerLink="/chart">Gantt Chart</a>
-</nav>
 
 
-<router-outlet></router-outlet>
