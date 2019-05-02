@@ -7,7 +7,6 @@ import {SupplierComponent} from './supplier/supplier.component';
 import {MediaChannelComponent} from './media-channel/media-channel.component';
 import {MediaPlannerComponent} from './media-planner/media-planner.component';
 import {CampaignComponent} from './media-planner/campaign/campaign.component';
-import {GanttChartComponent} from './gantt-chart/gantt-chart.component';
 
 const routes: Routes = [
 	{path: 'countries', component: CountryComponent},
@@ -20,7 +19,6 @@ const routes: Routes = [
 	{path: 'suppliers', component: SupplierComponent},
 	{path: 'mc', component: MediaChannelComponent},
 	{path:'mcsup', component: MediaChannelComponent},
-	{path:'chart', component: GanttChartComponent},
 
 ];
 

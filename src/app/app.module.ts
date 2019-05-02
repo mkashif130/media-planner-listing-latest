@@ -22,8 +22,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
 // import {FormControl} from '@angular/forms';
  import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { CampaignComponent } from './media-planner/campaign/campaign.component';
-import { GanttChart } from 'angular-gantt-chart';
-import { GanttChartComponent } from './gantt-chart/gantt-chart.component';
 
 
 @NgModule({
@@ -36,7 +34,6 @@ import { GanttChartComponent } from './gantt-chart/gantt-chart.component';
     MediaChannelComponent,
     MediaPlannerComponent,
     CampaignComponent,
-    GanttChartComponent,
 		//MatAutocompleteModule
   ],
   imports: [
@@ -58,7 +55,6 @@ import { GanttChartComponent } from './gantt-chart/gantt-chart.component';
 		MatSelectModule,
 		MatCardModule,
 		MatTableModule,
-		GanttChart,
      // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
      // and returns simulated server responses.
      // Remove it when a real server is ready to receive requests.
