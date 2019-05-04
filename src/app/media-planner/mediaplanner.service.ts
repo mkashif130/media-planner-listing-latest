@@ -12,10 +12,11 @@ import {catchError, map, tap} from 'rxjs/operators'
 })
 export class MediaPlannerService {
 
-	private clientApi = 'api/clients';
-	private countryApi = 'api/countries';
-	private mediaChannelApi = 'api/mediaChannels';
-	private supplierApi = 'api/suppliers';
+	private clientApi = 'http://localhost:37322/api/client/get';
+	private countryApi = 'http://localhost:37322/api/country/get';
+	private mediaChannelApi = 'http://localhost:37322/api/mediachannel/get';
+	private supplierApi = 'http://localhost:37322/api/supplier/get';
+	private supplierByMCIDApi = 'http://localhost:37322/api/supplier/getbymcid/';
   constructor(private http: HttpClient) { }
 
 	getClients() :  Observable<Client[]>{
@@ -40,7 +41,7 @@ export class MediaPlannerService {
 	}
 
 	getSuppliers(id: number) :  Observable<Supplier[]>{
-		const url = `${this.supplierApi}/?mcId=${id}`;
+		const url = `${this.supplierByMCIDApi}${id}`;
 		return this.http.get<Supplier[]>(url)
 			.pipe(
 				catchError(this.handleError<Supplier[]>('getSuppliers',[]))

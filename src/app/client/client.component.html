@@ -1,6 +1,8 @@
 <div class="component-client">
   <h2>All Clients List</h2>
   <mat-nav-list>
-    <mat-list-item *ngFor="let client of clients">{{client.name}}</mat-list-item>
+    <mat-list-item *ngFor="let client of clients">
+			<mat-card class="mat-card-padding">{{client.name}}</mat-card>&nbsp;
+</mat-list-item>
   </mat-nav-list>
 </div>

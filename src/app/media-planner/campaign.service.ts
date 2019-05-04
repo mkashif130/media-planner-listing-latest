@@ -15,12 +15,28 @@ const httpOptions = {
 
 export class CampaignService {
 
-	private api = 'api/campaign';
+	private getApiSingle ='http://localhost:37322/api/campaign/get/';
+private getApi ='http://localhost:37322/api/campaign/get';
+	private api = 'http://localhost:37322/api/campaign/savecampaign';
   constructor(private http: HttpClient) { }
 
-	getCampaigns() :  Observable<Campaign[]>{
-		return this.http.get<Campaign[]>(this.api)
+getCampaign(id) : Observable<Campaign>{
+		const url = `${this.getApiSingle}${id}`;
+		return this.http.get<Campaign>(url)
 			.pipe(
+				map(response=>{
+					console.log(response);
+					return response;
+				})
+			);
+}
+	getCampaigns() :  Observable<Campaign[]>{
+		return this.http.get<Campaign[]>(this.getApi)
+			.pipe(
+				map(response=> {
+					console.log(response);
+						return response;
+				}),
 				catchError(this.handleError<Campaign[]>('getCampaigns',[]))
 			);
 	}

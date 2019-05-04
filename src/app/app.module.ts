@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule }    from '@angular/common/http';
 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
+// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryDataService }  from './in-memory-data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CountryComponent } from './country/country.component';
@@ -16,12 +16,13 @@ import { MediaPlannerComponent } from './media-planner/media-planner.component';
  import {MatAutocompleteModule} from '@angular/material/autocomplete';
  import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule,MatDatepickerModule,MatNativeDateModule,MatListModule,MatRadioModule,MatButtonModule,
-MatSelectModule,MatCardModule,MatTableModule} from '@angular/material';
+MatSelectModule,MatCardModule,MatTableModule,MatPaginatorModule,MatDialogModule} from '@angular/material';
 import {MatExpansionModule} from '@angular/material/expansion';
 
 // import {FormControl} from '@angular/forms';
  import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { CampaignComponent } from './media-planner/campaign/campaign.component';
+import { AdComponent } from './media-planner/ad/ad.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { CampaignComponent } from './media-planner/campaign/campaign.component';
     MediaChannelComponent,
     MediaPlannerComponent,
     CampaignComponent,
+    AdComponent,
 		//MatAutocompleteModule
   ],
   imports: [
@@ -55,16 +57,18 @@ import { CampaignComponent } from './media-planner/campaign/campaign.component';
 		MatSelectModule,
 		MatCardModule,
 		MatTableModule,
+		MatPaginatorModule,MatDialogModule
      // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
      // and returns simulated server responses.
      // Remove it when a real server is ready to receive requests.
 
-     HttpClientInMemoryWebApiModule.forRoot(
-       InMemoryDataService, { dataEncapsulation: false }
-     )
+     // HttpClientInMemoryWebApiModule.forRoot(
+     //   InMemoryDataService, { dataEncapsulation: false }
+     // )
 
   ],
   providers: [MatNativeDateModule],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+	entryComponents:[AdComponent]
 })
 export class AppModule { }

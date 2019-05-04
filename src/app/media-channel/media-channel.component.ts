@@ -23,11 +23,17 @@ export class MediaChannelComponent implements OnInit {
   }
 
 getMediaChannels() : void {
-	this.mediaChannelService.getMediaChannels().subscribe(mc=>this.mediaChannels=mc);
+	this.mediaChannelService.getMediaChannels().subscribe(resp=>{
+		this.mediaChannels = resp;
+	});
 }
 
 onSelect(mc: MediaChannel):void{
 	this.selectedMediaChannel= mc;
-	this.mediaChannelService.getSuppliersByMedia(mc.id).subscribe(sbm=>this.suppliersInMedia=sbm);
+	console.log(mc.id);
+	this.mediaChannelService.getSuppliersByMedia(mc.id).subscribe(resp=>{
+		console.log(resp);
+		this.suppliersInMedia = resp;
+	});
 }
 }

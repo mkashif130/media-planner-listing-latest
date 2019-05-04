@@ -1,3 +1,18 @@
+.parent{
+	background-color: #001F3F;
+	color: Red;
+
+}
+.child{
+	border-bottom: 1px dashed #8c8b8b;
+}
+
+.parent:is-active{
+	font-weight: bold;
+  background-color: black;
+}
+
+
 .header {
   color: #369;
     font-family: Arial, Helvetica, sans-serif;

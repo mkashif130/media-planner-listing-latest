@@ -1,6 +1,11 @@
 <div class="component-country">
   <h2>All Countries List</h2>
+
   <mat-nav-list>
-    <mat-list-item *ngFor="let country of countries">{{country.name}}</mat-list-item>
+    <mat-list-item *ngFor="let country of countries">
+			<mat-card class="mat-card-padding">{{country.name}}</mat-card>&nbsp;
+
+			</mat-list-item>
+
   </mat-nav-list>
 </div>

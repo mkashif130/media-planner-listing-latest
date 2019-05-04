@@ -1,7 +1,9 @@
 <div class="component-media-channel">
   <h2>All Media Channel List</h2>
   <mat-nav-list>
-    <mat-list-item *ngFor="let mc of mediaChannels" (click)="onSelect(mc)">{{mc.name}}</mat-list-item>
+    <mat-list-item *ngFor="let mc of mediaChannels" (click)="onSelect(mc)">
+<mat-card class="mat-card-padding">{{mc.name}}</mat-card>&nbsp;
+		</mat-list-item>
   </mat-nav-list>
   <div class="detail">
     <div *ngIf="selectedMediaChannel">

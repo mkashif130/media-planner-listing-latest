@@ -1,5 +1,6 @@
+import {MediaChannel} from '../media-channel/mediaChannel';
 export class Supplier{
 	id:number;
 	name:string;
-	mcId:number;
+	mc: MediaChannel
 }

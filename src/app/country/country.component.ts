@@ -20,6 +20,8 @@ export class CountryComponent implements OnInit {
   }
 
 getCountries() : void {
-	this.countryService.getCountries().subscribe(count=>this.countries=count);
+	this.countryService.getCountries().subscribe(resp=>{
+		this.countries = resp;
+	});
 }
 }

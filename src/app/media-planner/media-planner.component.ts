@@ -45,10 +45,14 @@ export class MediaPlannerComponent implements OnInit {
 			this.ads=[];
   }
  OnClientSelected(e){
-	 this.selectedClient =  e;
+	 var c = new Client();
+	 c.name =e;
+	 this.selectedClient =c;
  }
  OnCountrySelected(e){
-	 this.selectedCountry =  e;
+	 var c = new Country();
+	 c.name =e;
+	 this.selectedCountry = c;
  }
 
  addFromDate(type: string, event: MatDatepickerInputEvent<Date>) {
@@ -122,9 +126,14 @@ console.log(ad);
 		 alert("To Date should be greater than From date");
 		 return;
 	 }
-
+	 console.log(this.selectedCountry);
+	 console.log(this.selectedClient);
 	 this.campaign = new Campaign();
+	 // var client = new Client();
+	 // client.name = this.selectedClient.name;
 	 this.campaign.client = this.selectedClient;
+	 // var country = new Country();
+	 // country.name = this.selectedCountry.name;
 	 this.campaign.country = this.selectedCountry;
 	 this.campaign.suppliers = this.selectedItems;
 	 this.campaign.campaignBudget= this.campaignBudget;
@@ -134,7 +143,7 @@ console.log(ad);
 		 this.campaigns=[];
 	 }
 	 this.campaign.id =  this.campaigns.length + 1;
-
+	 console.log(this.campaign);
 	 this.campaignService.addCampaign(this.campaign)
 	 	.subscribe(cam=>{
 			if(!this.campaigns){

@@ -9,22 +9,29 @@ import {Supplier} from '../supplier/supplier';
 })
 export class MediaChannelService {
 
-	private api = 'api/mediaChannels';
-	private supApi='api/suppliers'
+	private api = 'http://localhost:37322/api/mediachannel/get';
+	private supApi='http://localhost:37322/api/supplier/getbymcid'
 
   constructor(private http: HttpClient) { }
 
 	getMediaChannels() :  Observable<MediaChannel[]>{
 		return this.http.get<MediaChannel[]>(this.api)
 			.pipe(
+				map(response=> {
+						return response;
+				}),
 				catchError(this.handleError<MediaChannel[]>('getMediaChannels',[]))
 			);
 	}
 
 	getSuppliersByMedia(mcId: number) :  Observable<Supplier[]>{
-		const url = `${this.supApi}/?mcId=${mcId}`;
+const url = `${this.supApi}/${mcId}`;
+console.log(url);
 		return this.http.get<Supplier[]>(url)
 			.pipe(
+				map(response=> {
+						return response;
+				}),
 				catchError(this.handleError<Supplier[]>('getSuppliersByMedia',[]))
 			);
 	}

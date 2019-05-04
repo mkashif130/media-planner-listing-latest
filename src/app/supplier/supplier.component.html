@@ -1,6 +1,8 @@
 <div class="component-supplier">
   <h2>All Suppliers List</h2>
   <mat-nav-list>
-    <mat-list-item *ngFor="let supplier of suppliers">{{supplier.name}}</mat-list-item>
+    <mat-list-item *ngFor="let supplier of suppliers">
+<mat-card class="mat-card-padding">{{supplier.name}}</mat-card>&nbsp;
+		</mat-list-item>
   </mat-nav-list>
 </div>

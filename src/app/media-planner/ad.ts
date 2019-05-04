@@ -5,10 +5,13 @@ import {Supplier} from '../supplier/supplier'
 export class Ad{
 	Id:number;
 	mediaId:number;
-	supplierId:number;
+	supplier:Supplier;
 	fromDate: Date;
 	toDate: Date;
-	budget: number
+	budget: number;
+	remainingBudget:number;
+	campaign:Campaign;
+	adTitle:string;
 }
 
 
@@ -18,6 +21,7 @@ export class Campaign{
 	country:Country;
 	suppliers:Supplier[];
 	campaignBudget:number;
+	remainingBudget: number;
 	fromDate:Date;
 	toDate:Date;
 	ads:Ad[]

@@ -18,7 +18,9 @@ export class ClientComponent implements OnInit {
 	}
 
 	getClients() : void {
-	this.clientService.getClients().subscribe(clnt=>this.clients=clnt);
+	this.clientService.getClients().subscribe(resp=>{
+		this.clients = resp;
+	});
 	}
 
 }

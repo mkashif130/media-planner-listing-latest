@@ -9,12 +9,15 @@ import {catchError, map, tap} from 'rxjs/operators'
 })
 export class ClientService {
 
-	private api = 'api/clients';
+	private api = 'http://localhost:37322/api/client/get';
   constructor(private http: HttpClient) { }
 
 	getClients() :  Observable<Client[]>{
 		return this.http.get<Client[]>(this.api)
 			.pipe(
+				map(response=> {
+						return response;
+				}),
 				catchError(this.handleError<Client[]>('getClients',[]))
 			);
 	}
