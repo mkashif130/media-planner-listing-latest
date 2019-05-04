@@ -10,7 +10,11 @@
         <mat-list-item class="child" routerLink="/suppliers">Suppliers</mat-list-item>
         <mat-list-item  routerLink="/mc">Media Channels</mat-list-item>
       </mat-nav-list>
-      <mat-list-item class="parent" routerLink="/mediaplanner" [routerLinkActive]="['is-active']">Media Planner</mat-list-item>
+      <mat-list-item class="parent" routerLink="/mediaplanner" [routerLinkActive]="['is-active']">Media Planner
+			</mat-list-item>
+			<mat-nav-list class="inner-nav">
+				<mat-list-item class="child" routerLink="/ads">Ads</mat-list-item>
+			</mat-nav-list>
       <mat-list-item class="parent" routerLink="/campaigns" [routerLinkActive]="['is-active']">Campaigns</mat-list-item>
       <mat-list-item class="parent" routerLink="/chart" [routerLinkActive]="['is-active']">Gantt Chart</mat-list-item>
     </mat-nav-list>

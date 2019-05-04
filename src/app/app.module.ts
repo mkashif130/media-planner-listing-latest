@@ -23,6 +23,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
  import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { CampaignComponent } from './media-planner/campaign/campaign.component';
 import { AdComponent } from './media-planner/ad/ad.component';
+import { AdlistingComponent } from './media-planner/ad/adlisting/adlisting.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { AdComponent } from './media-planner/ad/ad.component';
     MediaPlannerComponent,
     CampaignComponent,
     AdComponent,
+    AdlistingComponent,
 		//MatAutocompleteModule
   ],
   imports: [

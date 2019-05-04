@@ -1,7 +1,7 @@
 import {Client} from '../client/client';
 import {Country} from '../country/country';
 import {Supplier} from '../supplier/supplier'
-
+import {MediaChannel} from '../../../media-channel/mediaChannel';
 export class Ad{
 	Id:number;
 	mediaId:number;
@@ -12,6 +12,7 @@ export class Ad{
 	remainingBudget:number;
 	campaign:Campaign;
 	adTitle:string;
+	mediaChannel:MediaChannel;
 }
 
 
